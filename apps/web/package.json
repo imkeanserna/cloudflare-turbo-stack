@@ -1,0 +1,44 @@
+{
+  "name": "web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "pages:build": "pnpm next-on-pages",
+    "db:generate": "npx prisma generate --schema=../../packages/db/prisma/schema.prisma",
+    "db:migrate": "npx prisma migrate dev --schema=../../packages/db/prisma/schema.prisma",
+    "db:no-engine": "npx prisma generate --no-engine --schema=../../packages/db/prisma/schema.prisma",
+    "preview": "pnpm pages:build && wrangler pages dev",
+    "deploy": "pnpm pages:build && wrangler pages deploy",
+    "cf-typegen": "wrangler types --env-interface CloudflareEnv env.d.ts"
+  },
+  "dependencies": {
+    "@repo/db": "workspace:*",
+    "@repo/ui": "workspace:*",
+    "@types/bcryptjs": "^2.4.6",
+    "bcryptjs": "^2.4.3",
+    "next": "14.2.5",
+    "next-auth": "5.0.0-beta.16",
+    "react": "^18",
+    "react-dom": "^18"
+  },
+  "devDependencies": {
+    "@cloudflare/next-on-pages": "1",
+    "@cloudflare/workers-types": "^4.20241205.0",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.5",
+    "eslint-plugin-next-on-pages": "^1.13.7",
+    "postcss": "^8.4.31",
+    "tailwindcss": "^3.4.16",
+    "typescript": "^5",
+    "vercel": "^39.2.2",
+    "wrangler": "^3.95.0"
+  }
+}
