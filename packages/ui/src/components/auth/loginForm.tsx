@@ -34,17 +34,17 @@ export const LoginForm: FC = () => {
 
   const onGithubSubmit = () => {
     setErrorMessage("");
-    signIn("github", { callbackUrl: "/" });
+    signIn("github", { callbackUrl: "/profile" });
   };
 
   const onGoogleSubmit = () => {
     setErrorMessage("");
-    signIn("google", { callbackUrl: "/" });
+    signIn("google", { callbackUrl: "/profile" });
   };
 
   const onSubmit = (data: LoginType) => {
     setErrorMessage("");
-    signIn("credentials", { ...data, callbackUrl: "/" });
+    signIn("credentials", { ...data, callbackUrl: "/profile" });
   };
 
   const form = useForm<LoginType>({

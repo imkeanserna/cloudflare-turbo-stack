@@ -14,14 +14,14 @@ export const currentUser = async () => {
 export const signUpUser = async (
   email: string,
   password: string,
-  displayName: string
+  name: string
 ) => {
   let success = false;
   let err: any;
 
   try {
     const hashedPassword = bcrypt.hashSync(password, 10);
-    await addUser({ email, password: hashedPassword, displayName });
+    await addUser({ email, password: hashedPassword, name });
     success = true;
   } catch (error: any) {
     err = error;
@@ -34,7 +34,7 @@ export const signUpUser = async (
       if (err.message.includes("users.email")) {
         return { error: "Email already registered" };
       } else {
-        return { error: "Display name already registered" };
+        return { error: "Name already registered" };
       }
     } else {
       return { error: "Something went wrong" };

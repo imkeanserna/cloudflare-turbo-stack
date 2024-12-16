@@ -2,7 +2,7 @@ import { prisma } from "@/server/index";
 
 interface IAddUser {
   email: string;
-  displayName?: string;
+  name?: string;
   password?: string;
   image?: string;
 }
@@ -14,16 +14,9 @@ export async function getUserByEmail(email: string) {
   return result ?? null;
 };
 
-async function getUserByDisplayName(displayName: string) {
-  const result = await prisma.user.findMany({
-    where: { displayName }
-  });
-  return result ?? null;
-};
-
 export async function addUser({
   email,
-  displayName,
+  name,
   password,
   image,
 }: IAddUser) {
@@ -31,24 +24,15 @@ export async function addUser({
     const isUserExist = await getUserByEmail(email);
 
     if (isUserExist) {
-      if (isUserExist.displayName === displayName) {
-        throw new Error("Display name already registered");
-      }
       throw new Error("Email already registered");
-    }
-
-    const isDisplayNameExist = await getUserByDisplayName(displayName!);
-
-    if (isDisplayNameExist.length > 0) {
-      throw new Error("Display name already registered");
     }
 
     const user = await prisma.user.create({
       data: {
         email,
-        displayName: displayName || email.split('@')[0],
-        password,
-        image
+        name: name || email.split("@")[0],
+        password: password || null,
+        image,
       },
     });
     return {

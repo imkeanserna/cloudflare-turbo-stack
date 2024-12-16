@@ -8,7 +8,10 @@ import { addUser, getUserByEmail } from "./app/_lib/user.actions";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [
-    Google,
+    Google({
+      clientId: process.env.GOOGLE_CLIENT_ID as string,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET as string
+    }),
     GitHub,
     Credentials({
       id: "credentials",

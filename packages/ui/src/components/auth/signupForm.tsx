@@ -31,7 +31,7 @@ interface SignUpFormProps {
   onSubmitAction: (
     email: string,
     password: string,
-    displayName: string
+    name: string
   ) => Promise<{ error: string }>;
 }
 
@@ -40,12 +40,12 @@ export const SignUpForm: FC<SignUpFormProps> = ({ onSubmitAction }) => {
 
   const onGithubSubmit = () => {
     setErrorMessage("");
-    signIn("github", { callbackUrl: "/" });
+    signIn("github", { callbackUrl: "/profile" });
   };
 
   const onGoogleSubmit = () => {
     setErrorMessage("");
-    signIn("google", { callbackUrl: "/" });
+    signIn("google", { callbackUrl: "/profile" });
   };
 
   const form = useForm<SignUpType>({
@@ -53,7 +53,7 @@ export const SignUpForm: FC<SignUpFormProps> = ({ onSubmitAction }) => {
     defaultValues: {
       email: "",
       password: "",
-      displayName: "",
+      name: "",
     },
   });
 
@@ -70,7 +70,7 @@ export const SignUpForm: FC<SignUpFormProps> = ({ onSubmitAction }) => {
           <form
             onSubmit={form.handleSubmit((data) => {
               setErrorMessage("");
-              onSubmitAction(data.email, data.password, data.displayName)
+              onSubmitAction(data.email, data.password, data.name)
                 .then((message) => {
                   if (message) {
                     setErrorMessage(message.error);
@@ -84,13 +84,13 @@ export const SignUpForm: FC<SignUpFormProps> = ({ onSubmitAction }) => {
             <div className="grid gap-4">
               <div className="grid gap-2">
                 <FormField
-                  name="displayName"
+                  name="name"
                   control={form.control}
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Display Name</FormLabel>
+                      <FormLabel>Name</FormLabel>
                       <FormControl>
-                        <Input placeholder="eg: Vishy" {...field} />
+                        <Input placeholder="eg: John" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>

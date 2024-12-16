@@ -11,7 +11,7 @@ export default auth((req) => {
   }
 
   if (isLoggedIn && authRoutes.includes(req.nextUrl.pathname)) {
-    return Response.redirect(new URL("/", req.nextUrl.origin));
+    return Response.redirect(new URL("/profile", req.nextUrl.origin));
   }
 
   if (
