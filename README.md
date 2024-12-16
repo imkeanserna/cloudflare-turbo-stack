@@ -1,14 +1,58 @@
-# Turborepo starter
+# 🚀 Full-Stack Turborepo Cloudflare SaaS Kit
 
-This is an official starter Turborepo.
+### <i>Build and deploy monorepo scalable products on Cloudflare with ease.</i>
 
-## Using this example
+An opinionated, batteries-included starter kit for quickly building and deploying SaaS products using [Turborepo](https://turbo.build/), [Next.js](https://nextjs.org/), and [Hono](https://hono.dev/) for the backend. This setup leverages Cloudflare Workers for hosting, [Prisma Accelerate Edge](https://www.prisma.io/accelerate) for database access, and integrates a modern UI with [ShadcnUI](https://ui.shadcn.com/).
 
-Run the following command:
+This is the stack powering next-gen SaaS solutions, optimized for both performance and scalability.
 
-```sh
-npx create-turbo@latest
+## Stack Includes:
+- [Turborepo](https://turbo.build/) for monorepo management
+- [Next.js](https://nextjs.org/) for frontend
+- [Hono](https://hono.dev/) for serverless backend (Cloudflare Workers)
+- [Prisma Accelerate Edge](https://www.prisma.io/accelerate) for database access
+- [Cloudflare Workers](https://workers.cloudflare.com/) for hosting the backend
+- [ShadcnUI](https://ui.shadcn.com/) as the component library
+- [TailwindCSS](https://tailwindcss.com/) for styling
+- [NextAuth](https://next-auth.js.org/) for authentication
+- [Recoil](https://recoiljs.org/) for state management
+- [Websockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket) for real-time communication
+
+## Getting Started
+1. Make sure that you have [Wrangler](https://developers.cloudflare.com/workers/wrangler/install-and-update/#installupdate-wrangler) installed. And also that you have logged in with ``wrangler login`` (You'll need a Cloudflare account)
+2. Clone the repository and install dependencies:
 ```
+git clone https://github.com/imkeanserna/cloudflare-turbo-stack.git
+cd cloudflare-turbo-stack
+pnpm install
+```
+3. Next Js
+```
+cd apps/web
+cp .env-example .env
+add vars in wrangler.toml
+pnpm run db:generate
+pnpm run db:migrate
+pnpm run db:no-engine
+pnpm run dev
+
+// To deploy the application, run the following command:
+pnpm run deploy 
+```
+Open http://localhost:3000
+</br>
+</br>
+4. Hono Server
+```
+cd apps/hono-server
+cp .dev.vars-example .dev.vars
+add vars in wrangler.toml
+pnpm run dev
+
+// To deploy the application, run the following command:
+pnpm run deploy 
+```
+Open http://localhost:8787
 
 ## What's inside?
 
@@ -32,43 +76,6 @@ This Turborepo has some additional tools already setup for you:
 - [ESLint](https://eslint.org/) for code linting
 - [Prettier](https://prettier.io) for code formatting
 
-### Build
-
-To build all apps and packages, run the following command:
-
-```
-cd my-turborepo
-pnpm build
-```
-
-### Develop
-
-To develop all apps and packages, run the following command:
-
-```
-cd my-turborepo
-pnpm dev
-```
-
-### Remote Caching
-
-Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
-
-```
-cd my-turborepo
-npx turbo login
-```
-
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
-
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
-
-```
-npx turbo link
-```
-
 ## Useful Links
 
 Learn more about the power of Turborepo:
@@ -79,3 +86,6 @@ Learn more about the power of Turborepo:
 - [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
 - [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
 - [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
+
+## Open for Contribution 🤝
+Join the community and make an impact! Whether it’s squashing bugs, adding exciting features, or polishing the documentation, your contributions are always valued and appreciated. 💡✨

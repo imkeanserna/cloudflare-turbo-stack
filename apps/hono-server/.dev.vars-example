@@ -1,0 +1,2 @@
+DATABASE_URL="your-prisma-accelerator-database-url-here"
+DIRECT_URL="your-postgres-database-url-here"
