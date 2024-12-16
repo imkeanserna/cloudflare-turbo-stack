@@ -29,7 +29,7 @@ const Page = async () => {
       <Card className="w-full max-w-md shadow-lg hover:shadow-xl transition-shadow duration-300">
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
           <CardTitle className="text-2xl font-bold">Welcome</CardTitle>
-          <Badge variant="secondary" className="text-xs">
+          <Badge className="text-xs">
             Verified User
           </Badge>
         </CardHeader>
