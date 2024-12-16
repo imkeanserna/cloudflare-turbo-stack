@@ -1,8 +1,8 @@
 import { z } from "zod";
 
 export const ProfileSchema = z.object({
-  displayName: z.string().min(1, {
-    message: "Display name is required",
+  name: z.string().min(1, {
+    message: "Name is required",
   }),
 });
 
@@ -12,8 +12,8 @@ export const SignUpSchema = z.object({
     .string()
     .min(6, { message: "Password must be at least 6 characters long" })
     .max(30, { message: "Password can only be 30 characters long" }),
-  displayName: z.string().min(1, {
-    message: "Display name is required",
+  name: z.string().min(1, {
+    message: "Name is required",
   }),
 });
 

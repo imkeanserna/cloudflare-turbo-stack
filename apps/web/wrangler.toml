@@ -17,11 +17,11 @@ pages_build_output_dir = ".vercel/output/static"
 # Note: Use secrets to store sensitive data.
 # - https://developers.cloudflare.com/pages/functions/bindings/#secrets
 [vars]
-DATABASE_URL="prisma://accelerate.prisma-data.net/?api_key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlfa2V5IjoiZTVhMjFlMWMtOGUzYi00NjZmLTkxNGQtZDJjNjE4Zjk0Yjg2IiwidGVuYW50X2lkIjoiODU1NWUwNGU2YmY3ZTQyZGIzZjVmYWMxN2U5YjliM2NjZjFmNTIzZDc4NGFiYTIzNmFjYTk0MDVlN2RlNGIyNCIsImludGVybmFsX3NlY3JldCI6IjAwOGQ0NWJlLWQ0ZDgtNDVjOC05OTc4LWM3NjkyMTNjYzFmMyJ9.fyvQeIdLrHfOqKRZW6lq8uAQ5tDrYWO_MQfy3TpF0Y8"
-DIRECT_URL="postgresql://instafix_owner:ZQJRpo3xe2cA@ep-lucky-bar-a1lt2i13.ap-southeast-1.aws.neon.tech/instafix?sslmode=require"
-NEXTAUTH_SECRET="1bba1d060090fccf4d6619997dad34eb47d9d7578383051f1e409453f751d7fd"
-GOOGLE_CLIENT_ID="446206711986-ove8fqetnv2pm2te6o1qn9pn0k7op576.apps.googleusercontent.com"
-GOOGLE_CLIENT_SECRET="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"
+DATABASE_URL="your-prisma-accelerator-database-url-here"
+DIRECT_URL="your-postgres-database-url-here"
+NEXTAUTH_SECRET="your-next-auth-secret-here"
+GOOGLE_CLIENT_ID="your-google-client-id-here"
+GOOGLE_CLIENT_SECRET="your-google-client-secret-here"
 
 # Bind the Workers AI model catalog. Run machine learning models, powered by serverless GPUs, on Cloudflare’s global network
 # Docs: https://developers.cloudflare.com/pages/functions/bindings/#workers-ai

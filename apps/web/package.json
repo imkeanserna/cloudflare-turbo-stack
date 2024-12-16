@@ -16,14 +16,17 @@
     "cf-typegen": "wrangler types --env-interface CloudflareEnv env.d.ts"
   },
   "dependencies": {
+    "@auth/prisma-adapter": "^2.7.4",
     "@repo/db": "workspace:*",
     "@repo/ui": "workspace:*",
     "@types/bcryptjs": "^2.4.6",
     "bcryptjs": "^2.4.3",
+    "lucide-react": "^0.468.0",
     "next": "14.2.5",
     "next-auth": "5.0.0-beta.16",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "recoil": "^0.7.7"
   },
   "devDependencies": {
     "@cloudflare/next-on-pages": "1",
