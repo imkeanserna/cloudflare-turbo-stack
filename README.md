@@ -54,6 +54,16 @@ pnpm run deploy
 ```
 Open http://localhost:8787
 
+## Create a New App From Scratch
+### 1. Create a New [Next.js App](https://developers.cloudflare.com/pages/framework-guides/nextjs/ssr/get-started/)
+```
+pnpm create cloudflare@latest my-next-app --framework=next
+```
+### 2. Create a New [Hono Server](https://developers.cloudflare.com/pages/framework-guides/deploy-a-hono-site/)
+```
+pnpm dlx create-hono my-hono-server
+```
+
 ## What's inside?
 
 This Turborepo includes the following packages/apps:
